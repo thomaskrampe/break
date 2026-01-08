@@ -1,0 +1,18 @@
+services:
+  caddy:
+    # image: caddy/caddy:2.5.2-alpine
+    image: caddy/caddy:latest
+    container_name: caddy-break
+    restart: unless-stopped
+    # ports:
+    #   - '80:8080'
+    volumes:
+      - ./public:/public
+      - ./Caddyfile:/Caddyfile:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - reverse-proxy
+    command: caddy run --config /Caddyfile
+networks:
+  reverse-proxy:
+    external: true
