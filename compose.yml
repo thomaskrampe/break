@@ -2,7 +2,7 @@ services:
   caddy:
     # image: caddy/caddy:2.5.2-alpine
     image: caddy/caddy:latest
-    container_name: caddy-break
+    container_name: lunchbreak
     restart: unless-stopped
     # ports:
     #   - '80:8080'
