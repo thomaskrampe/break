@@ -1,18 +1,18 @@
 services:
   caddy:
-    # image: caddy/caddy:2.5.2-alpine
-    image: caddy/caddy:latest
+    image: caddy/caddy:2.5.2-alpine
+    # image: caddy/caddy:latest
     container_name: lunchbreak
     restart: unless-stopped
     # ports:
     #   - '80:8080'
     volumes:
       - ./public:/public
-      - ./Caddyfile:/Caddyfile:ro
+      - ./Caddyfile.txt:/Caddyfile.txt:ro
       - /etc/localtime:/etc/localtime:ro
     networks:
       - reverse-proxy
-    command: caddy run --config /Caddyfile
+    command: caddy run --config /Caddyfile.txt
 networks:
   reverse-proxy:
     external: true
