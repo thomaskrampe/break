@@ -7,12 +7,12 @@ services:
     # ports:
     #   - '80:8080'
     volumes:
-      - /public:/public
-      - Caddyfile.txt:Caddyfile.txt:ro
+      - ./public:/public
+      - ./data:/data:ro
       - /etc/localtime:/etc/localtime:ro
     networks:
       - reverse-proxy
-    command: caddy run --config Caddyfile.txt
+    command: caddy run --config ./data/Caddyfile
 networks:
   reverse-proxy:
     external: true
